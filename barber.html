@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BarberKings | Cortes de Élite</title>
+  <link rel="stylesheet" href="barber.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-scissors">✂</div>
+      <p>BarberKings</p>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">✂</span>
+      <span class="brand-name">BarberKings</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#peluqueros">Equipo</a></li>
+      <li><a href="#citas">Citas</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+    </ul>
+    <button class="btn-cita-nav" onclick="scrollToCitas()">Pedir Cita</button>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio" onclick="closeMobile()">Inicio</a>
+    <a href="#servicios" onclick="closeMobile()">Servicios</a>
+    <a href="#peluqueros" onclick="closeMobile()">Equipo</a>
+    <a href="#citas" onclick="closeMobile()">Citas</a>
+    <a href="#ubicacion" onclick="closeMobile()">Ubicación</a>
+    <a href="#nosotros" onclick="closeMobile()">Nosotros</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">⭐ #1 Barbería en la ciudad</div>
+      <h1 class="hero-title">
+        El Arte del<br />
+        <span class="gold">Buen Corte</span>
+      </h1>
+      <p class="hero-sub">Más de 10 años transformando estilos. Precisión, estilo y actitud en cada corte.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToCitas()">
+          <i class="fas fa-calendar-alt"></i> Reservar Cita
+        </button>
+        <button class="btn-secondary" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">
+          Ver Servicios
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Clientes</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">10+</span><span class="stat-lbl">Años</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">4.9★</span><span class="stat-lbl">Rating</span></div>
+      </div>
+    </div>
+    <div class="hero-deco">
+      <div class="deco-circle c1"></div>
+      <div class="deco-circle c2"></div>
+      <div class="hero-scissors">✂</div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- HORARIO BANNER -->
+  <div class="horario-banner">
+    <div class="horario-items">
+      <div class="h-item"><i class="fas fa-clock"></i><strong>Lun – Vie:</strong> 8:00 AM – 8:00 PM</div>
+      <div class="h-sep">|</div>
+      <div class="h-item"><i class="fas fa-clock"></i><strong>Sábado:</strong> 8:00 AM – 6:00 PM</div>
+      <div class="h-sep">|</div>
+      <div class="h-item"><i class="fas fa-clock"></i><strong>Domingo:</strong> 9:00 AM – 2:00 PM</div>
+      <div class="h-sep">|</div>
+      <div class="h-item live-item"><span class="live-dot"></span> Abierto Ahora</div>
+    </div>
+  </div>
+
+  <!-- GALERÍA -->
+  <section class="section gallery-section" id="galeria">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Galería</span>
+        <h2>Nuestras <span class="gold">Instalaciones</span></h2>
+        <p>Conoce nuestro espacio, ambiente y los productos que usamos para ti.</p>
+      </div>
+    </div>
+
+    <!-- CAROUSEL FULL WIDTH -->
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="carouselTrack"></div>
+
+      <!-- Controles -->
+      <button class="carousel-btn carousel-prev" id="carouselPrev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="carousel-btn carousel-next" id="carouselNext">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- Dots -->
+      <div class="carousel-dots" id="carouselDots"></div>
+
+      <!-- Caption -->
+      <div class="carousel-caption" id="carouselCaption"></div>
+    </div>
+
+    <!-- Miniaturas -->
+    <div class="container">
+      <div class="carousel-thumbs" id="carouselThumbs"></div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestros Servicios</span>
+        <h2>Cortes & <span class="gold">Estilos</span></h2>
+        <p>Cada servicio es una obra de arte. Elige tu transformación.</p>
+      </div>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- PELUQUEROS -->
+  <section class="section dark-section" id="peluqueros">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestro Equipo</span>
+        <h2>Los <span class="gold">Maestros</span></h2>
+        <p>Profesionales apasionados, listos para darte el mejor corte.</p>
+      </div>
+      <div class="barbers-grid" id="barbersGrid"></div>
+    </div>
+  </section>
+
+  <!-- CITAS -->
+  <section class="section" id="citas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Reservaciones</span>
+        <h2>Pide tu <span class="gold">Cita</span></h2>
+        <p>Selecciona tu barbero, el servicio y el horario disponible.</p>
+      </div>
+      <div class="booking-wrapper">
+        <div class="booking-form" id="bookingForm">
+          <!-- Step 1 -->
+          <div class="booking-step active" id="step1">
+            <h3>1. Elige tu Barbero</h3>
+            <div class="barber-select-grid" id="barberSelectGrid"></div>
+          </div>
+          <!-- Step 2 -->
+          <div class="booking-step" id="step2">
+            <h3>2. Elige tu Servicio</h3>
+            <div class="service-select-grid" id="serviceSelectGrid"></div>
+            <button class="btn-back" onclick="goStep(1)"><i class="fas fa-arrow-left"></i> Volver</button>
+          </div>
+          <!-- Step 3 -->
+          <div class="booking-step" id="step3">
+            <h3>3. Selecciona Fecha y Hora</h3>
+            <div class="date-picker-wrapper">
+              <input type="date" id="dateInput" class="date-input" min="" />
+            </div>
+            <div class="slots-container" id="slotsContainer">
+              <p class="select-date-hint">← Selecciona una fecha para ver horarios disponibles</p>
+            </div>
+            <button class="btn-back" onclick="goStep(2)"><i class="fas fa-arrow-left"></i> Volver</button>
+          </div>
+          <!-- Step 4 -->
+          <div class="booking-step" id="step4">
+            <h3>4. Tus Datos</h3>
+            <div class="form-fields">
+              <input type="text" id="clientName" placeholder="Tu nombre completo" class="form-input" />
+              <input type="tel" id="clientPhone" placeholder="Tu número de teléfono" class="form-input" />
+              <input type="email" id="clientEmail" placeholder="Tu correo electrónico" class="form-input" />
+              <textarea id="clientNote" placeholder="Nota adicional (opcional)" class="form-input" rows="3"></textarea>
+            </div>
+            <button class="btn-back" onclick="goStep(3)"><i class="fas fa-arrow-left"></i> Volver</button>
+            <button class="btn-primary full-btn" onclick="confirmBooking()">
+              <i class="fas fa-check"></i> Confirmar Cita
+            </button>
+          </div>
+        </div>
+        <!-- Summary panel -->
+        <div class="booking-summary" id="bookingSummary">
+          <h3><i class="fas fa-receipt"></i> Resumen</h3>
+          <div class="summary-item"><span>Barbero:</span><strong id="sumBarber">—</strong></div>
+          <div class="summary-item"><span>Servicio:</span><strong id="sumService">—</strong></div>
+          <div class="summary-item"><span>Precio:</span><strong id="sumPrice">—</strong></div>
+          <div class="summary-item"><span>Fecha:</span><strong id="sumDate">—</strong></div>
+          <div class="summary-item"><span>Hora:</span><strong id="sumTime">—</strong></div>
+          <div class="booking-progress">
+            <div class="progress-step done" id="prog1"><span>1</span> Barbero</div>
+            <div class="progress-step" id="prog2"><span>2</span> Servicio</div>
+            <div class="progress-step" id="prog3"><span>3</span> Horario</div>
+            <div class="progress-step" id="prog4"><span>4</span> Datos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL CONFIRMACIÓN -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-box">
+      <div class="modal-icon">🎉</div>
+      <h3>¡Cita Confirmada!</h3>
+      <p id="modalText"></p>
+      <button class="btn-primary" onclick="closeModal()">¡Genial!</button>
+    </div>
+  </div>
+
+  <!-- UBICACIÓN -->
+  <section class="section dark-section" id="ubicacion">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Encuéntranos</span>
+        <h2>Nuestra <span class="gold">Ubicación</span></h2>
+        <p>Estamos en el corazón de la ciudad, fácil de encontrar.</p>
+      </div>
+      <div class="location-wrapper">
+        <div class="location-info">
+          <div class="info-card">
+            <i class="fas fa-map-marker-alt gold"></i>
+            <div>
+              <strong>Dirección</strong>
+              <p>Calle 15 #8-42, Centro,<br />Cali, Valle del Cauca</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-phone gold"></i>
+            <div>
+              <strong>Teléfono</strong>
+              <p>+57 300 123 4567</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-envelope gold"></i>
+            <div>
+              <strong>Email</strong>
+              <p>barberkings@gmail.com</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fab fa-instagram gold"></i>
+            <div>
+              <strong>Instagram</strong>
+              <p>@barberkings_cali</p>
+            </div>
+          </div>
+          <a class="btn-primary map-btn" href="https://www.google.com/maps/dir/?api=1&destination=Calle+15+%238-42+Cali+Colombia" target="_blank">
+            <i class="fas fa-route"></i> Ir en Google Maps
+          </a>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127500!2d-76.5225!3d3.4516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6f0cc4bb3f1%3A0x1f0fb5e952ae6168!2sCali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1680000000000"
+            width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="section" id="nosotros">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Quiénes Somos</span>
+        <h2>Los <span class="gold">Creadores</span></h2>
+        <p>Dos amigos con la misma pasión: hacer que cada cliente se vea increíble.</p>
+      </div>
+      <div class="founders-grid">
+        <div class="founder-card">
+          <div class="founder-avatar">JJ</div>
+          <div class="founder-info">
+            <h3>Jhon Jairo Parra</h3>
+            <span class="founder-role">Co-Fundador & Master Barber</span>
+            <p>Con más de 12 años de experiencia en el arte del barbering, Jhon Jairo es conocido por su precisión milimétrica y su habilidad para crear estilos únicos. Su pasión nació desde joven, cuando transformar un corte en una obra de arte se convirtió en su vocación.</p>
+            <div class="founder-skills">
+              <span>Degradados</span>
+              <span>Barbas</span>
+              <span>Diseños</span>
+              <span>Clásicos</span>
+            </div>
+            <div class="founder-social">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="founder-card">
+          <div class="founder-avatar gold-av">SB</div>
+          <div class="founder-info">
+            <h3>Sebastián Banguera</h3>
+            <span class="founder-role">Co-Fundador & Style Director</span>
+            <p>Sebastián es el visionario detrás de la estética de BarberKings. Su formación en diseño y su amor por las tendencias internacionales le permiten mantenerse a la vanguardia del estilo. Especialista en cortes modernos y técnicas de última generación.</p>
+            <div class="founder-skills">
+              <span>Modernos</span>
+              <span>Coloración</span>
+              <span>Texturizados</span>
+              <span>Undercut</span>
+            </div>
+            <div class="founder-social">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-values">
+        <div class="value-item"><i class="fas fa-medal gold"></i><strong>Calidad</strong><p>Usamos productos premium para cada servicio.</p></div>
+        <div class="value-item"><i class="fas fa-heart gold"></i><strong>Pasión</strong><p>Amamos lo que hacemos y se nota en cada corte.</p></div>
+        <div class="value-item"><i class="fas fa-users gold"></i><strong>Comunidad</strong><p>Más que una barbería, somos un punto de encuentro.</p></div>
+        <div class="value-item"><i class="fas fa-star gold"></i><strong>Excelencia</strong><p>No paramos hasta que el cliente esté 100% satisfecho.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-icon">✂</span>
+        <span class="brand-name">BarberKings</span>
+        <p>Transformando estilos desde 2014.<br />Cali, Valle del Cauca, Colombia.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#peluqueros">Equipo</a>
+        <a href="#citas">Citas</a>
+      </div>
+      <div class="footer-links">
+        <h4>Info</h4>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#">Galería</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+        <p><i class="fas fa-envelope"></i> barberkings@gmail.com</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 BarberKings. Creado con ❤️ por Jhon Jairo Parra & Sebastián Banguera.</p>
+    </div>
+  </footer>
+
+  <script src="barber.js"></script>
+</body>
+</html>
