@@ -183,8 +183,7 @@ function renderStars(rating) {
 }
 
 function selectBarberAndScroll(barberId) {
-  document.getElementById('citas').scrollIntoView({ behavior: 'smooth' });
-  setTimeout(() => selectBarber(barberId), 600);
+  selectBarber(barberId);
 }
 
 // ======= BOOKING FORM =======
@@ -218,7 +217,7 @@ function selectBarber(id) {
   const card = document.getElementById(`bselect_${id}`);
   if (card) card.classList.add('selected');
   updateSummary();
-  setTimeout(() => goStep(2), 300);
+  goStep(2);
 }
 
 function selectService(id) {
@@ -227,7 +226,7 @@ function selectService(id) {
   const card = document.getElementById(`sselect_${id}`);
   if (card) card.classList.add('selected');
   updateSummary();
-  setTimeout(() => goStep(3), 300);
+  goStep(3);
 }
 
 function initDateInput() {
@@ -288,7 +287,7 @@ function selectSlot(time, el) {
   el.classList.add('selected');
   booking.time = time;
   updateSummary();
-  setTimeout(() => goStep(4), 300);
+  goStep(4);
 }
 
 function parseHour(str) {
